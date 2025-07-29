@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Advanced Study-Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Advanced Study Planner</h1>
+    </header>
+
+    <main>
+        <form id="planForm">
+            <div class="input-section">
+                <h3>Add Subjects</h3>
+                <div id="subjectContainer">
+                    <div class="subject-input">
+                        <input type="text" name="subjectName[]" placeholder="Subject name" required />
+                        <input type="number" name="subjectHours[]" placeholder="Hours" min="0.5" step="0.5" required />
+                        <button type="button" class="remove-subject" onclick="removeSubject(this)">×</button>
+                    </div>
+                </div>
+                <button type="button" id="addSubject" class="add-btn">+ Add Subject</button>
+            </div>
+
+            <div class="input-section">
+                <label>
+                    Number of days
+                    <input name="days" type="number" min="1" max="365" required placeholder="e.g., 7" />
+                </label>
+
+                <label>
+                    Maximum hours per day
+                    <input name="maxHoursPerDay" type="number" min="1" max="24" step="0.5" required
+                        placeholder="e.g., 8" />
+                </label>
+            </div>
+
+            <button type="submit" class="pulse generate-btn">Generate Study Plan</button>
+        </form>
+
+        <section id="output"></section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

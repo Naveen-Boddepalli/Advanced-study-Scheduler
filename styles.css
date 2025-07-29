@@ -1,0 +1,537 @@
+/* Advanced Study Planner Styles */
+:root {
+  --bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --accent: #ff6b6b;
+  --secondary: #4ecdc4;
+  --success: #51cf66;
+  --warning: #ffd43b;
+  --card: rgba(255, 255, 255, 0.1);
+  --card-hover: rgba(255, 255, 255, 0.15);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --radius: 16px;
+  --font-main: "Inter", "Segoe UI", system-ui, sans-serif;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-accent: #ff6b6b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.6;
+}
+
+header {
+  padding: 3rem 1rem 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(45deg, var(--accent), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+main {
+  width: min(95%, 800px);
+  margin-bottom: 3rem;
+}
+
+/* Form Styling */
+form {
+  background: var(--card);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+form:hover {
+  background: var(--card-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+.input-section {
+  margin-bottom: 2rem;
+}
+
+.input-section h3 {
+  color: var(--text-accent);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-section h3::before {
+  content: "📝";
+  font-size: 1.1em;
+}
+
+/* Subject Input Styling */
+#subjectContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.subject-input {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.subject-input:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.subject-input input[type="text"] {
+  flex: 1;
+}
+
+.subject-input input[type="number"] {
+  width: 100px;
+}
+
+.remove-subject {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-subject:hover {
+  background: #ff5252;
+  transform: scale(1.1);
+}
+
+.add-btn {
+  padding: 0.8rem 1.5rem;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.add-btn:hover {
+  background: #45b7aa;
+  transform: translateY(-2px);
+}
+
+/* Regular Input Styling */
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: 500;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 1rem 1.2rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Generate Button */
+.generate-btn {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--accent), #ff8a80);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.generate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 107, 107, 0.3);
+}
+
+.generate-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 20px rgba(255, 107, 107, 0);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Output Section */
+#output {
+  margin-top: 3rem;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 2rem;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.error {
+  background: rgba(255, 107, 107, 0.1);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Schedule Summary */
+.schedule-summary {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.schedule-summary h3 {
+  color: var(--secondary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.schedule-summary p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+}
+
+.schedule-summary strong {
+  color: var(--text-primary);
+}
+
+/* Main Schedule Table */
+.schedule-table {
+  width: 100%;
+  background: var(--card);
+  border-radius: var(--radius);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+  border-collapse: collapse;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
+
+.schedule-table thead {
+  background: linear-gradient(45deg, var(--accent), var(--secondary));
+}
+
+.schedule-table th {
+  padding: 1.5rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.day-header {
+  width: 15%;
+}
+
+.subjects-header {
+  width: 65%;
+}
+
+.total-header {
+  width: 20%;
+  text-align: center;
+}
+
+.schedule-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.schedule-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: scale(1.01);
+}
+
+.schedule-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.schedule-table td {
+  padding: 1.5rem 1.2rem;
+  vertical-align: top;
+}
+
+/* Day Cell */
+.day-cell {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.day-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.day-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+/* Subjects Cell */
+.subjects-cell {
+  padding: 1rem 1.2rem;
+}
+
+.subject-session {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border-left: 4px solid var(--secondary);
+  transition: all 0.2s ease;
+}
+
+.subject-session:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(5px);
+}
+
+.subject-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.session-hours {
+  font-weight: 700;
+  color: var(--secondary);
+  background: rgba(78, 205, 196, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.no-study {
+  color: var(--text-secondary);
+  font-style: italic;
+  text-align: center;
+  display: block;
+  padding: 1rem;
+}
+
+/* Total Cell */
+.total-cell {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.daily-total {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--warning);
+  background: rgba(255, 212, 59, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* Subject Breakdown */
+.subject-breakdown {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.subject-breakdown h3 {
+  color: var(--secondary);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.breakdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.breakdown-table th {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.breakdown-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+}
+
+.breakdown-table tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.breakdown-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    width: 95%;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
+
+  .subject-input {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .subject-input input[type="number"] {
+    width: 100%;
+  }
+
+  .schedule-table {
+    font-size: 0.9rem;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 1rem 0.8rem;
+  }
+
+  .day-number {
+    font-size: 1.5rem;
+  }
+
+  .subject-session {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .session-hours {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 0.8rem 0.5rem;
+  }
+
+  .subjects-cell {
+    padding: 0.8rem 0.5rem;
+  }
+
+  .subject-session {
+    padding: 0.6rem 0.8rem;
+    margin: 0.3rem 0;
+  }
+}
